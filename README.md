@@ -1,6 +1,7 @@
 # Table of Contents
 - [Table of Contents](#table-of-contents)
 - [Basic Docker Commands](#basic-docker-commands)
+- [Docker Run Commands](#docker-run-commands)
 
 # Basic Docker Commands
 - Run Docker Container -> `docker run <docker-image>`
@@ -28,3 +29,17 @@
 > The command just pulls the Image and doesnot run the Container
 - To execute any Command on Running Container -> `docker exec <container-id> <command> <command-specification>`
   - ex: `docker exec c1a19 cat /etc/*release*`
+
+# Docker Run Commands
+  - Docker Continer with Tag -> `docker run <image>:<tag> <arguments>`
+    - ex: `docker run ubuntu:17.10 cat /etc/*release*`
+  - Inspect Docker Container -> `docker inspect <container-id>`
+    - `docker inspect 1e23y`
+  - Attach to Docker Container -> `docker attach <container-id>`
+    - ex: `docker attach q23re`
+  - Port Mapping -> `docker run -p <host-port>:<container-port> <docker-image>`
+    - ex: `docker run -p 8080:8080 -p 50000:50000 jenkins:jenkins`
+  - Volume Mapping -> `docker run -v <host-directory/volume>:<container-directory> jenkins/jenkins`
+    - ex: `docker run -p 8080:8080 -p 50000:50000 --restart=on-failure -v jenkins_home:/var/jenkins_home jenkins/jenkins:lts-jdk17`
+  - Docker Logs -> `docker logs <container-id>`
+    - ex: `docker logs 1w3r`
